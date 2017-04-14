@@ -1,0 +1,74 @@
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="style/base.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body bgcolor="#C0C0C0" onkeydown="myKeydown(event)">
+	<div class="top">
+	
+
+  
+  <!--<button id="q2" onclick="show2()">open file</button>-->
+
+
+  <button id="q3" onclick="show3()" ondblclick="reset3()">消除左递归</button>
+  <button id="q4" onclick="show4()" ondblclick="reset4()">FIRST</button>
+  <button id="q5" onclick="show5()" ondblclick="reset5()">FOLLOW</button>
+  <button id="q6" onclick="show6()" ondblclick="reset6()">LL(1)</button>
+  <button id="q7" onclick="show7()" ondblclick="reset7()">预测分析表</button>
+  <button id="q8" onclick="show8()" ondblclick="reset8()">LR(0)</button>
+  <!--<button id="q8_1" onclick="show8_1()">分析表</button>-->
+  <button id="q9" onclick="show9()" ondblclick="reset9()">SLR</button>
+  <button id="q10"onclick="show10()" ondblclick="reset10()">LR(1)</button>
+  <button id="q11"onclick="show11()" ondblclick="reset11()">LALR</button>
+  <button id="q12"onclick="show12()" ondblclick="reset12()">分析表</button>
+  
+  <hr id="hr1"/>
+  <!--hr style=" height:2px;border:none;border-top:2px dotted #185598;" /-->	
+
+	<textarea  id="t_left"  ></textarea>
+
+	<textarea id="t_right_1" readonly>		
+	</textarea>
+
+	<textarea id="t_right_2" readonly>		
+	</textarea>
+	<textarea id="t_right_3" readonly>		
+	</textarea>
+	<textarea id="t_below_left" readonly  onclick="myClick(this)" >		
+	</textarea>
+
+	<textarea id="t_below_right1"  readonly>		
+	</textarea>
+  <textarea id="t_below_right2" readonly>		
+	</textarea>
+
+	
+  <div id="popup" class="disable" draggable="true">
+        <table border="1" colspan="1">
+            <tbody id="tbody">
+            </tbody>
+        </table>
+        <button id="close">关闭</button>
+    </div>
+
+   
+
+
+
+
+</div>
+
+
+
+<script type="text/javascript" src="script/Top-Down.js"></script>
+<script type="text/javascript" src="script/Buttom-Up.js"></script>
+<script type="text/javascript" src="script/Others.js"></script>
+
+</body>
+
+
+
+
+</html>
