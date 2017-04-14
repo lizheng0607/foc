@@ -80,6 +80,7 @@ function show8()
             //console.log(LR_I);
             //console.log(LR_L);
             counter1=counter2=counter3=0;
+ 
   /*  }
     else {
         flag=8;
