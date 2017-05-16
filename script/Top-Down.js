@@ -601,7 +601,7 @@ function addFirst()//求First集
                              }
                              else if(str[counter1].charAt(1)=="'"&&str[counter1].charAt(str[counter1].length-1)!="~")
                              {
-                                if(str[counter1].charAt(3)<'A'||str[counter1].charAt(3)>'Z')
+                                if(str[counter1].charAt(4)<'A'||str[counter1].charAt(4)>'Z')
                                  {  document.getElementById("t_below_right1").innerHTML="(2)若X∈Vn，且有产生式X->a...则把a加入FIRST(X)"+'\n'+'\n'
                                                                                             +str[counter1]+'\n'+str[counter1].charAt(4)+"加入到First("+str[counter1].substring(0,2)+")";
                                     for(var i=0;i<FirstVnnum;i++)
@@ -1021,7 +1021,7 @@ function show3()//消除左递归
                                                         "    for j=1 to i-1 do                                 "+'\n'+
                                                         "       把形如Pi->Pjγ的规则改写成                      "+'\n'+
                                                         "       Pi->δ1γ|Pi->δ2γ|...|Pi->δkγ|,                  "+'\n'+
-                                                        "       其中Pi->δ1|δ2|...|δk|是冠以消除Pi的直接左递归  "+'\n'+
+                                                        "       其中Pi->δ1|δ2|...|δk|是可以消除Pi的直接左递归  "+'\n'+
                                                         "(3)化简Pi的得到的文法，消除从开始符号不能到达的规则。 "+'\n'+
                                                         "消除P的直接左递归的算法                               "+'\n'+
                                                         "把P->Pα1|Pα1|...|Pαm|β1|β2|...|βn改写成               "+'\n'+
@@ -1068,10 +1068,10 @@ function show4()//求First集
                                                        "对于X->Y1Y2...Yk,则把FIRST(Yi)中所有非ε元素加入        "+'\n'+
                                                         "        FIRST(该候选)，直到Yj,ε不属于FIRST(Yj)"
    
-   if(FirstFlag==0)
-   {
+//if(FirstFlag==0)
+  // {
      traverse();
-    
+     FirstFlag==0;
     //
     FirstVnnum=0;
     while(Vn[FirstVnnum]!="")FirstVnnum++;
@@ -1090,12 +1090,12 @@ function show4()//求First集
     counter1=0;
     counter2=0;
     counter3=0;
-   }
-   else {
+  // }
+ /*  else {
        alert("已求出First集");
             document.getElementById("t_below_right1").innerHTML="已求出First集";
     showFirst();
-   }
+   }*/
    
 }
 function show5()//求Follow集
@@ -1280,7 +1280,7 @@ function show6()//判断LL（1）
     {
         alert("不是LL(1)文法");
         document.getElementById("t_below_right1").innerHTML="不是LL(1)文法";
-        LLpanduan=1;
+        LLpanduan=2;
     }
     else {
         alert("是LL(1)文法");
@@ -1319,21 +1319,21 @@ function show7()//构造预测分析表
         i++;
     }                                   
     addL(vn,"#");
-    el.className = 'active';
+    el1.className = 'active';
   /*  const ary = [
         [1,2,3,4,5],
         [2,3,4,5,6],
         [3,4,5,6,99]
     ]
     */
-    let str4 = '';
+    var str4 = '';
     var Xstr="";
     var Y="";
-    for(let i = -1; Vn[i]!=""||i==-1; i++) {
+    for(var i = -1; Vn[i]!=""||i==-1; i++) {
         str4 += '<tr>';
     if(i==-1)
     {
-          for(let j = -1; vn[j]!=""||j==-1; j++) {
+          for(var j = -1; vn[j]!=""||j==-1; j++) {
               if(j==-1)str4+='<td>' + "" + '</td>';
               else{str4 += '<td>' + vn[j] + '</td>';}
             
@@ -1341,7 +1341,7 @@ function show7()//构造预测分析表
 
     }
     else{
-        for(let j = -1; vn[j]!=""||j==-1; j++) {
+        for(var j = -1; vn[j]!=""||j==-1; j++) {
             if(j==-1)
             {str4+='<td>' + Vn[i] + '</td>';
             //Xstr=str[i];
@@ -1389,7 +1389,7 @@ function show7()//构造预测分析表
         Y="";
     }
 
-    tbody.innerHTML = str4;
+    tbody1.innerHTML = str4;
     
 
     //////////////////
@@ -1397,10 +1397,14 @@ function show7()//构造预测分析表
     }
     else if(LLflag==1)
     {
-    el.className = 'active';
+    el1.className = 'active';
     }
     
 
+    }
+    else if(LLpanduan==2){
+        alert("不是LL(1)文法");
+        //return;
     }
     else{
         alert("请先进行LL(1)文法判断");
@@ -1408,24 +1412,27 @@ function show7()//构造预测分析表
 
 
    
-    }
-    const el = document.getElementById('popup');
-    const btn = document.getElementById('q7');
-    const close = document.getElementById('close');
-    const tbody = document.getElementById('tbody');
-    
- close.onclick = function() {
-        el.className = 'disable';
-    }
- el.ondrag = function(e) {
-        //console.log(e.clientX, e.clientY);
-        el.style.left = e.clientX + 'px';
-        el.style.top = e.clientY + 'px';
-    }
-    el.ondragend = function(e) {
-        el.style.left = e.screenX + 'px';
-        el.style.top = e.screenY - 83 + 'px';
 }
+    const el1 = document.getElementById('popup1');
+   // const btn = document.getElementById('q7');
+    const close1 = document.getElementById('close1');
+    const tbody1 = document.getElementById('tbody1');
+    
+ close1.onclick = function() {
+        el1.className = 'disable';
+    }
+ el1.ondrag = function(e) {
+        //console.log(e.clientX, e.clientY);
+        el1.style.left = e.clientX + 'px';
+        el1.style.top = e.clientY + 'px';
+    }
+el1.ondragend = function(e) {
+        el1.style.left = e.screenX + 'px';
+        el1.style.top = e.screenY - 83 + 'px';
+}
+
+/////////////////////////////////////////////
+/////////////////////////////////////////////
 
     ///////////////////////////////////////////
     //以上和浮窗有关
@@ -1440,7 +1447,7 @@ function myKeydown(e)//键盘事件
              if(e && e.keyCode==118){ // 按 F7
                 if(flag==31)//31表示消除左递归
                 {     eliminateRecursive();
-                       //alert("ssss222");
+                      
                 }
                 if(flag==4)//求First集
                 {    addFirst();                                        
@@ -1449,27 +1456,16 @@ function myKeydown(e)//键盘事件
                 {
                     addFollow();
                 }
-                if(flag==8)
+                if(flag==8||flag==9)//LR0 项目集规范族
                 {
                     LR0();
                     scrollButtom();
-                }
-                if(flag==9)
-                {
-                    LR0();
-                    scrollButtom();
-                }
-                if(flag==10)
+                }             
+                if(flag==10||flag==11)//LR1项目组规范集
                 {
                     LR1();
                     scrollButtom();
-                }
-                if(flag==11)
-                {
-                    LR1();
-                    scrollButtom();
-                }
-               
+                }            
                }
 }
 ///////////////////////////////////

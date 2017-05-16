@@ -1,6 +1,8 @@
 function scrollButtom()
 {
     t_below_right1.scrollTop=t_below_right1.scrollHeight;
+    state1.scrollTop=state1.scrollHeight;
+    state2.scrollTop=state2.scrollHeight;
 }
 function VNandVN(A,B)//判断A[] B[]有没有交集
 {
@@ -12,7 +14,7 @@ function VNandVN(A,B)//判断A[] B[]有没有交集
         {
             if(A[i]==B[j])
             {
-                return 1;//有交集
+                return A[i];//有交集
             }
             j++;
         }
@@ -26,7 +28,7 @@ function addVn(A,B)//B[]加入到A[]
     var j=0;
     var xflag;
     //var xflag=0;
-    while(B[j]!="")
+    while(B[j]!=""&&B[j]!=undefined)
     {   if(B[j]!="ε")
         {
             addL(A,B[j]);
@@ -120,10 +122,11 @@ function traverse()//把输入框内的左部非终结符加入[]
     for(var i=0;i<30;i++)
     {
         str[i]="";
+        LALR[i]="";
         //i++;
 
     }
-
+    
 
     str1=document.getElementById("t_left").value.split('\n');
     var j=0;
@@ -207,3 +210,4 @@ function compare(A,B)//比较A[] B[]有无相同元素
         i++;
     }
 }
+
